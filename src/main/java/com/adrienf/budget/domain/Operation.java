@@ -1,14 +1,17 @@
 package com.adrienf.budget.domain;
 
 
+import com.adrienf.budget.json.MoneyDeserializer;
+import com.adrienf.budget.json.MoneySerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.annotations.GenericGenerator;
 import org.joda.money.Money;
-import org.springframework.cglib.core.Local;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -26,13 +29,15 @@ public class Operation implements Serializable {
     private String operation;
 
     @Column(nullable = false)
+    @JsonDeserialize(using = MoneyDeserializer.class)
+    @JsonSerialize(using = MoneySerializer.class)
     private Money amount;
 
     @Column(nullable = false)
-    private LocalTime createdOn;
+    private LocalDateTime createdOn;
 
     @Column(nullable = false)
-    private LocalTime updatedOn;
+    private LocalDateTime updatedOn;
 
     public Operation() {
     }
@@ -42,7 +47,7 @@ public class Operation implements Serializable {
         this.amount = amount;
     }
 
-    public Operation(String operation, Money amount, LocalTime createdOn, LocalTime updatedOn) {
+    public Operation(String operation, Money amount, LocalDateTime createdOn, LocalDateTime updatedOn) {
         this.operation = operation;
         this.amount = amount;
         this.createdOn = createdOn;
@@ -51,12 +56,12 @@ public class Operation implements Serializable {
 
     @PrePersist
     protected void onCreate() {
-        updatedOn = createdOn = LocalTime.now();
+        updatedOn = createdOn = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedOn = LocalTime.now();
+        updatedOn = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -83,19 +88,19 @@ public class Operation implements Serializable {
         this.amount = amount;
     }
 
-    public LocalTime getCreatedOn() {
+    public LocalDateTime getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalTime createdOn) {
+    public void setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
     }
 
-    public LocalTime getUpdatedOn() {
+    public LocalDateTime getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalTime updatedOn) {
+    public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
     }
 }

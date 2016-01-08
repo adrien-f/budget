@@ -2,12 +2,15 @@ package com.adrienf.budget;
 
 import com.adrienf.budget.domain.Operation;
 import com.adrienf.budget.service.IOperationRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.joda.money.Money;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean;
 
 import java.util.Arrays;
 
