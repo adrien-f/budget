@@ -10,5 +10,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.UUID;
 
-@RepositoryRestResource(collectionResourceRel = "operations", path = "operations")
-public interface IOperationRepository extends PagingAndSortingRepository<Operation, UUID> {}
+@RepositoryRestResource()
+public interface OperationRepository extends PagingAndSortingRepository<Operation, UUID> {}

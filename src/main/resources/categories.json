@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Logement",
+    "children": ["Décoration", "Assurance habitation", "Charges diverses", "Eau", "Électricité", "Entretien", "Extérieur et jardin", "Gaz", "Logement - Autres", "Loyer"]
+  },
+  {
+    "name": "Achats & Shopping",
+    "children": ["Cadeaux", "Autres", "Vêtements / Chaussures", "Articles de sport", "Films & DVDs", "High Tech", "Licenses", "Livres", "Musique"]
+  },
+  {
+    "name": "Alimentation & Restaurants",
+    "children": ["Restaurants", "Supermarché / Epicerie", "Fast foods", "Café", "Autres"]
+  },
+  {
+    "name": "Abonnements",
+    "children": ["Internet", "Téléphonie mobile", "Autres", "Câble / Satellite", "Téléphonie Fixe"]
+  },
+  {
+    "name": "Divers",
+    "children": ["Autres", "Assurance", "Dons", "Pressing", "Tabac"]
+  },
+  {
+    "name": "Loisirs & Sorties",
+    "children": ["Hobbies", "Divertissements", "Bars / Clubs", "Frais Animaux", "Hôtels", "Autres", "Sorties culturelles", "Sport", "Voyages"]
+  },
+  {
+    "name": "Opérations bancaires",
+    "children": ["Virements", "Autres", "Frais"]
+  },
+  {
+    "name": "Esthétique & Soins",
+    "children": ["Coiffeur", "Cosmétique", "Esthétique", "Autres"]
+  },
+  {
+    "name": "Impôts et taxes",
+    "children": ["Amendes", "Taxes", "Impôts"]
+  },
+  {
+    "name": "Auto & Transports",
+    "children": ["Assurance véhicule", "Autres", "Billets d'avion", "Billets de train", "Carburant", "Entretien", "Location", "Péage", "Stationnement", "Transports en commun"]
+  },
+  {
+    "name": "Rentrées d'argent",
+    "children": ["Salaires", "Dépôt d'argent", "Allocations", "Virements internes", "Autres"]
+  }
+]
