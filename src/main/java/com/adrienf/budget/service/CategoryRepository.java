@@ -7,5 +7,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.UUID;
 
-@RepositoryRestResource()
 public interface CategoryRepository extends PagingAndSortingRepository<Category, UUID> {}

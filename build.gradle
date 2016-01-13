@@ -37,6 +37,7 @@ dependencies {
     compile("com.h2database:h2")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.jadira.usertype:usertype.core:5.0.0.GA")
     compile("org.joda:joda-money:0.10.0")
     compile("org.springframework.boot:spring-boot-devtools")
@@ -48,4 +49,8 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
+}
+
+bootRun {
+    addResources = true
 }

@@ -5,6 +5,7 @@ import com.adrienf.budget.json.MoneyDeserializer;
 import com.adrienf.budget.json.MoneySerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.GenericGenerator;
 import org.joda.money.Money;
 
@@ -12,12 +13,13 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
 public class Operation implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    public enum OperationType {CB, PRLV, VIR, WITHDRAW}
 
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -26,12 +28,18 @@ public class Operation implements Serializable {
     private UUID id;
 
     @Column(nullable = false)
-    private String operation;
+    private String label;
 
     @Column(nullable = false)
     @JsonDeserialize(using = MoneyDeserializer.class)
     @JsonSerialize(using = MoneySerializer.class)
     private Money amount;
+
+    @Column(nullable = false)
+    private LocalDateTime eventDate;
+
+    @Column(nullable = false)
+    private OperationType type;
 
     @Column(nullable = false)
     private LocalDateTime createdOn;
@@ -42,14 +50,17 @@ public class Operation implements Serializable {
     public Operation() {
     }
 
-    public Operation(String operation, Money amount) {
-        this.operation = operation;
+    public Operation(String label, Money amount, OperationType type, LocalDateTime eventDate) {
+        this.label = label;
         this.amount = amount;
+        this.eventDate = eventDate;
+        this.type = type;
     }
 
-    public Operation(String operation, Money amount, LocalDateTime createdOn, LocalDateTime updatedOn) {
-        this.operation = operation;
+    public Operation(String label, Money amount, OperationType type, LocalDateTime eventDate, LocalDateTime createdOn, LocalDateTime updatedOn) {
+        this.label = label;
         this.amount = amount;
+        this.eventDate = eventDate;
         this.createdOn = createdOn;
         this.updatedOn = updatedOn;
     }
@@ -72,12 +83,12 @@ public class Operation implements Serializable {
         this.id = id;
     }
 
-    public String getOperation() {
-        return operation;
+    public String getLabel() {
+        return label;
     }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public Money getAmount() {
@@ -86,6 +97,22 @@ public class Operation implements Serializable {
 
     public void setAmount(Money amount) {
         this.amount = amount;
+    }
+
+    public LocalDateTime getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(LocalDateTime eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public OperationType getType() {
+        return type;
+    }
+
+    public void setType(OperationType type) {
+        this.type = type;
     }
 
     public LocalDateTime getCreatedOn() {

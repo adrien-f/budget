@@ -1,46 +1,68 @@
 [
   {
     "name": "Logement",
+    "icon": "fa-home",
+    "color": "#1abc9c",
     "children": ["Décoration", "Assurance habitation", "Charges diverses", "Eau", "Électricité", "Entretien", "Extérieur et jardin", "Gaz", "Logement - Autres", "Loyer"]
   },
   {
     "name": "Achats & Shopping",
+    "icon": "fa-shopping-cart",
+    "color": "#2ecc71",
     "children": ["Cadeaux", "Autres", "Vêtements / Chaussures", "Articles de sport", "Films & DVDs", "High Tech", "Licenses", "Livres", "Musique"]
   },
   {
     "name": "Alimentation & Restaurants",
+    "icon": "fa-cutlery",
+    "color": "#3498db",
     "children": ["Restaurants", "Supermarché / Epicerie", "Fast foods", "Café", "Autres"]
   },
   {
     "name": "Abonnements",
+    "icon": "fa-phone",
+    "color": "#9b59b6",
     "children": ["Internet", "Téléphonie mobile", "Autres", "Câble / Satellite", "Téléphonie Fixe"]
   },
   {
     "name": "Divers",
+    "icon": "fa-asterisk",
+    "color": "#34495e",
     "children": ["Autres", "Assurance", "Dons", "Pressing", "Tabac"]
   },
   {
     "name": "Loisirs & Sorties",
+    "icon": "fa-glass",
+    "color": "#27ae60",
     "children": ["Hobbies", "Divertissements", "Bars / Clubs", "Frais Animaux", "Hôtels", "Autres", "Sorties culturelles", "Sport", "Voyages"]
   },
   {
     "name": "Opérations bancaires",
+    "icon": "fa-university",
+    "color": "#2980b9",
     "children": ["Virements", "Autres", "Frais"]
   },
   {
     "name": "Esthétique & Soins",
+    "icon": "fa-scissors",
+    "color": "#8e44ad",
     "children": ["Coiffeur", "Cosmétique", "Esthétique", "Autres"]
   },
   {
     "name": "Impôts et taxes",
+    "icon": "fa-gavel",
+    "color": "#95a5a6",
     "children": ["Amendes", "Taxes", "Impôts"]
   },
   {
     "name": "Auto & Transports",
+    "icon": "fa-car",
+    "color": "#f39c12",
     "children": ["Assurance véhicule", "Autres", "Billets d'avion", "Billets de train", "Carburant", "Entretien", "Location", "Péage", "Stationnement", "Transports en commun"]
   },
   {
     "name": "Rentrées d'argent",
+    "icon": "fa-eur",
+    "color": "#16a085",
     "children": ["Salaires", "Dépôt d'argent", "Allocations", "Virements internes", "Autres"]
   }
 ]
