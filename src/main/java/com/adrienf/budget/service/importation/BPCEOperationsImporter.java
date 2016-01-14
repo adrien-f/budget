@@ -46,38 +46,11 @@ public class BPCEOperationsImporter implements OperationsImporter {
         LocalDateTime parsedLocalDateTime = LocalDateTime.of(parsedDate.getYear(), parsedDate.getMonth(), parsedDate.getDayOfMonth(), 0, 0);
 
         String label = record.get("Label");
-        Operation.OperationType operationType = Operation.OperationType.CB;
-        if (label.contains("PRLV ")) {
-            operationType = Operation.OperationType.PRLV;
-            label = label.split("PRLV ")[1];
-        } else if (label.contains("VIR ")) {
-            operationType = Operation.OperationType.VIR;
-            label = label.split("VIR ")[1];
-        } else if (label.toLowerCase().contains("virement")) {
-            operationType = Operation.OperationType.VIR;
-            label = label;
-        } else if (label.contains("* ")) {
-            operationType = Operation.OperationType.PRLV;
-            label = label;
-        } else if (label.contains("RETRAIT DAB")) {
-            operationType = Operation.OperationType.WITHDRAW;
-            label = label.split("RETRAIT DAB ")[1];
-        } else {
-            try {
-                label = label.split("CB ")[1];
-            } catch (ArrayIndexOutOfBoundsException e) {
-                e.printStackTrace();
-
-            }
-        }
-
-        if (operationType == Operation.OperationType.CB) {
+        if (label.contains("FACT  ")) {
             String[] facts = label.split("FACT ");
-            label = facts[0].trim();
             parsedLocalDateTime = LocalDateTime.of(Integer.parseInt("20" + facts[1].substring(4, 6)), Integer.parseInt(facts[1].substring(2, 4)), Integer.parseInt(facts[1].substring(0, 2)), 0, 0);
         }
-
-        return new Operation(label, Money.of(CurrencyUnit.EUR, amount), operationType, parsedLocalDateTime);
+        return new Operation(null, Money.of(CurrencyUnit.EUR, amount), parsedLocalDateTime);
     }
 
 }

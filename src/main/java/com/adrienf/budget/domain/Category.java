@@ -1,6 +1,7 @@
 package com.adrienf.budget.domain;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ public class Category {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
+    @Column()
+    @Type(type="pg-uuid")
     private UUID id;
 
     @Column(nullable = false)
